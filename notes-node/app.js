@@ -8,13 +8,18 @@ const notes=require('./notes.js');
 
 const argv=yargs.argv;
 var command = argv._[0];
-console.log('Command: ',command);
+/*console.log('Command: ',command);
 console.log('Process',process.argv);
-console.log('Yargs',argv);
+console.log('Yargs',argv);*/
 
 if(command === 'add'){
     console.log("Add");
-    notes.addNote(argv.title,argv.body);
+    var note=notes.addNote(argv.title,argv.body);
+    if(!note){
+        console.log("Duplicated title!");
+    }else{
+        console.log(`Added with success! Title: ${note.title} Body: ${note.body}`);
+    }
 }
 else if(command === 'list'){
     console.log("Listing notes");
@@ -22,11 +27,20 @@ else if(command === 'list'){
 }
 else if(command === 'read'){
     console.log("Reading");
-    notes.getNote(argv.title);
+    note=notes.getNote(argv.title);
+    if(note.length>0){
+        console.log(`Note body: ${note[0].body}`);
+    }else{
+        console.log("Note not found");
+    }
 }
 else if(command === 'remove'){
     console.log("Remove");
-    notes.removeNote(argv.title);
+    if(notes.removeNote(argv.title)){
+        console.log("Note Removed");
+    }else{
+        console.log("Note not found");
+    }
 }
 else{
     console.log("Command not recognized");
