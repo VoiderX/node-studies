@@ -13,4 +13,11 @@ const argv = yargs
     .help()
     .alias('help', 'h')
     .argv;
-geo.geoCodeAddress(argv.address);
+geo.geoCodeAddress(argv.address,(errorMessage,results)=>{
+    if(errorMessage){
+        console.log(errorMessage);
+    }else{
+        console.log(JSON.stringify(results,undefined,1));
+    }
+
+});
