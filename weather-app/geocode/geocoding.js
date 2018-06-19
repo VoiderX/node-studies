@@ -19,7 +19,7 @@ var geoCodeAddress = (address,callback) => {
             callback(undefined,{
                 address:body.results[0]["formatted_address"],
                 latitude:geometryLoc["lat"],
-                longitute:geometryLoc["lng"]
+                longitude:geometryLoc["lng"]
 
             });
         }
