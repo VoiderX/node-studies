@@ -14,7 +14,11 @@ var localWeather = (latitude, longitude, callback) => {
         else if (response.statusCode === 400) {
             callback("Unable to fetch weather!");
         } else {
-            callback(converter.fahrenheitToCelsius(body.currently.temperature));
+            callback(undefined,
+                {
+                    temperature:converter.fahrenheitToCelsius(body.currently.temperature),
+                    apparentTemperature:converter.fahrenheitToCelsius(body.currently.apparentTemperature)
+                });
         }
 
     });

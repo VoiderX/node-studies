@@ -20,16 +20,16 @@ var callbackFunction = (errorMessage, results) => {
     if (errorMessage) {
         console.log(errorMessage);
     } else {
-        console.log(JSON.stringify(results, undefined, 1));
+     //   console.log(JSON.stringify(results, undefined, 1));
+     console.log(`The temperature is ${parseFloat(results.temperature).toFixed(2)}. It feels like ${parseFloat(results.apparentTemperature).toFixed(2)}!`);
     }
-
 };
 
 var callbackFunctionAddress = (errorMessage, results) => {
     if (errorMessage) {
         console.log(errorMessage);
     } else {
-        console.log(JSON.stringify(results, undefined, 1));
+        console.log(results.address);
         weather.localWeather(results.latitude, results.longitude, callbackFunction);
     }
 
