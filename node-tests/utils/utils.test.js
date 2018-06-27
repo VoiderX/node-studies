@@ -16,3 +16,35 @@ it('should square a number', () => {
     // }
     expect(res).toBe(16);
 });
+
+it('should set firstName and last Name',()=>{
+    var user={};
+    utils.setName(user,'Gabriel Abreu');
+    expect(user).toInclude({
+        firstName: 'Gabriel',
+        lastName: 'Abreu'
+    });
+});
+
+// it('should expect some values',()=>{
+//     // expect(12).toNotBe(11);
+
+//     // expect({
+//     //     name: 'Gabriel',
+//     //     batata: 'sim'
+//     // }).toEqual(
+//     //     {
+//     //         name: 'Gabriel',
+//     //         batata: 'sim'
+//     //     });
+    
+//     // expect ([2,3,4]).toExclude(5);
+
+//     expect({
+//         name : 'Gabriel',
+//         age : 21,
+//         location: 'Paraná'
+//     }).toInclude({
+//         age :21
+//     });
+// });
