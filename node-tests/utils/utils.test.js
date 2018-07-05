@@ -26,6 +26,19 @@ it('should set firstName and last Name',()=>{
     });
 });
 
+it('should async add two numbers',(done)=>{
+    utils.asyncAdd(4,3,(sum)=>{
+        expect(sum).toBe(7).toBeA('number');
+        done();
+    });
+});
+
+it('should async square a number',(done)=>{
+    utils.asyncSquare(4,(square)=>{
+        expect(square).toBe(16);
+        done();
+    });
+});
 // it('should expect some values',()=>{
 //     // expect(12).toNotBe(11);
 
